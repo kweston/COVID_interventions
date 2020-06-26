@@ -15,7 +15,9 @@ needed_packages <- c(
   , "scales")
 
 ## load packages. Install all packages that return "FALSE"
-lapply(needed_packages, require, character.only = TRUE)
+# lapply(needed_packages, packages.install, character.only = TRUE)
+new_packages <- needed_packages[!(needed_packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 
 simpleCap <- function(x) {
     s <- strsplit(x, " ")[[1]]
